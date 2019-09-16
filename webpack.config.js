@@ -67,18 +67,18 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpg|jpeg|gif|ico)$/,
+        test: /\.(png|jpg|jpeg|gif|ico|svg)$/,
         use: [
           {
             loader: 'file-loader',
             options: {
-              name: './img/[name].[hash].[ext]'
+              name: '../asset/images/[name].[ext]'
             }
           }
         ]
       },
       {
-        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'file-loader',
         options: {
           //name: './fonts/[name].[hash].[ext]'

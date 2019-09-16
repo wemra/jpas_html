@@ -11,10 +11,12 @@ $(document).ready(()=>{
 
 class Application {
     constructor(){
-        start()
+        this.start()
     }
 
     start() {
+        $('.carousel').carousel({
 
+        })
     }
 }
