@@ -1,0 +1,300 @@
+@import "mixin";
+body{
+  margin :0;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Segoe UI", Roboto, "Helvetica Neue", Arial, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size:1rem;
+  font-weight:400;
+  line-height:1.5;
+  color: var(--black-color);
+  text-align:left;
+  background-color:white;
+}
+button,
+.button {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+p,h1,h2,h3,ul,ol,li,dd,dt,figure,figcaption {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style-type: none;
+  list-style-position:outside;
+}
+
+
+/* container */
+
+.container {
+  width: 100%;
+  background-color: white;
+  &--black {
+    background-color: var(--black-color);
+  }
+  &--color {
+    background-color: var(--sub-bg-color);
+  }
+  &--border {
+    border-bottom: 1px solid #D8D8D8;
+  }
+  & > * {
+    margin: 0 auto;
+    max-width: 768px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    &--black {
+      height: 240px;
+    }
+
+    & > * {
+      margin: 0 auto;
+      width: 1100px;
+      max-width: 1100px;
+      padding: 0 24px;
+    }
+  }
+}
+
+/* header, footer */
+
+.footer__logo,
+.header__logo {
+  @include image-replace();
+  & a {
+    display: block;
+    height: 100%;
+  }
+}
+.footer-nav-list__link {
+  color: white;
+}
+.footer__logo,
+.header__logo {
+  width: 181px;
+  height: 87px;
+}
+.header__logo {
+  background: url("../asset/images/header_logo_sp.svg") no-repeat 0 0;
+}
+.footer__logo {
+  background: url("../asset/images/footer_logo_sp.svg") no-repeat 0 0;
+  margin-bottom: 24px;
+}
+.header {
+  padding: 32px 0 32px 29px;
+}
+.footer {
+  padding: 32px 24px;
+  color: white;
+}
+@media screen and (min-width: 768px) {
+  .header {
+    padding: 0;
+    height: 144px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer {
+    justify-content: space-between;
+    padding: 0;
+  }
+  .footer__logo,
+  .header__logo {
+    width: 484px;
+    height: 67px;
+    margin: 0;
+  }
+  .header__logo {
+    background: url("../asset/images/header_logo_desktop.svg") no-repeat 0 0;
+    margin-top: 5px;
+  }
+  .footer__logo {
+    background: url("../asset/images/footer_logo_desktop.svg") no-repeat 0 0;
+    margin-bottom: 0;
+  }
+  .footer {
+    display: flex;
+    flex-wrap: wrap;
+    &__copy {
+      width: 100%;
+      margin-top: 32px;
+    }
+    &__logo {
+      margin-top: 60px;
+    }
+  }
+}
+
+/* nav */
+
+.nav-list__link {
+  color: #6a6a6a;
+}
+
+/*hamburger menu*/
+
+.nav {
+  position: fixed;
+  height: 100vh;
+  z-index: 101;
+  background: #fff;
+  width: 77vw;
+  top: 0;
+  left: 120%;
+  box-shadow: -5px 0 12px 0 rgba(0, 0, 0, 0.25);
+  transition: .3s all ease-out;
+  .nav--active & {
+    left: 23%;
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+  &-list__link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 14px;
+    color: #6a6a6a;
+    height: 48px;
+    border-bottom: 1px solid white;
+    background-color: #f6e8ea;
+    padding-left: 55px;
+    font-weight: bold;
+  }
+}
+.nav-list__item--active .nav-list__link {
+  background-color: #f45b69;
+  color: white;
+  &:before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url(../asset/images/icon-musical-note.svg) no-repeat center center;
+    margin-left: -40px;
+    margin-right: 16px;
+  }
+}
+.footer-nav {
+  &__list {
+    margin-bottom: 16px;
+  }
+  &-list {
+    &__item {
+      height: 32px;
+    }
+    &__link {
+      color: white;
+    }
+  }
+}
+.nav__btn.sp {
+  position: absolute;
+  top:32px;
+  right: 25px;
+  & .button {
+    width: 22px;
+    height: 16px;
+    background: url("../asset/images/ico_three_lines.svg") no-repeat center center;
+    @include image-replace();
+  }
+}
+.shadow {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: .3s all ease-out;
+  &__button {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 24px;
+    left: 24px;
+    background: url("../asset/images/ico_cross.svg") no-repeat center center;
+    @include image-replace();
+  }
+  &--none {
+    display: none;
+    opacity: 0;
+    .nav--active & {
+      opacity: 1;
+      display: block;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .nav {
+    position: inherit;
+    width: auto;
+    height: auto;
+    z-index: auto;
+    box-shadow: none;
+  }
+  .nav,
+  .footer-nav {
+    &__list {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 0;
+    }
+    &-list {
+      &__item {
+        margin-left: 32px;
+        height: auto;
+        &--active a {
+          font-weight: bold;
+        }
+      }
+      &__link {
+        font-size: 14px;
+        display: inline-block;
+        height: auto;
+        border-bottom: none;
+        background-color: transparent;
+        padding-left: 0;
+        font-weight: normal;
+      }
+    }
+  }
+  .nav {
+    margin-top: 72px;
+  }
+  .footer-nav {
+    margin-top: 64px;
+  }
+  .nav__btn.sp {
+    display: none;
+  }
+  .shadow {
+    display: none;
+  }
+  .nav-list__item--active .nav-list__link {
+    background-color: transparent;
+    color: #6a6a6a;
+    &:before {
+      display: none;
+    }
+  }
+}

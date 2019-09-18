@@ -1,0 +1,22 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/carousel";
+
+/* carousel */
+
+.carousel-indicators {
+  bottom: 16px;
+  & li {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-right: 12px;
+    margin-left: 12px;
+  }
+}
+.carousel-item {
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+}
