@@ -15,12 +15,14 @@ class Application {
     }
 
     start() {
-        $('.carousel').carousel();
+        $('.carousel').carousel()
+
         $('.nav__btn.sp').on('click', function(){
-            $('body').addClass('nav--active');
-        });
+            $('body').addClass('nav--active')
+        })
+
         $('.shadow').on('click', function(){
-            $('body').removeClass('nav--active');
-        });
+            $('body').removeClass('nav--active')
+        })
     }
 }
